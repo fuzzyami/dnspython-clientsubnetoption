@@ -212,6 +212,7 @@ if __name__ == "__main__":
             r = dns.query.udp(message, addr, timeout=args.timeout)
             if r.flags & dns.flags.TC:
                 r = dns.query.tcp(message, addr, timeout=args.timeout)
+            print r
         except dns.exception.Timeout:
             print >> sys.stderr, "Timeout: No answer received from %s\n" % args.nameserver
             sys.exit(3)
